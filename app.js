@@ -1,4 +1,4 @@
-const width = 600;
+const width = 900;
 const height = 600;
 
 const elemWidth = 100
@@ -132,33 +132,41 @@ function cutTree(node, threshold) {
   return clusters;
 }
 
+
+const container = d3.select("#container").append("svg")
+      .attr("width", width)
+      .attr("height", height);
+
 const render = data => {
 
   const xScale = d3.scaleBand()
         .domain(data.map(d => d.id))
         .range([0, width])
 
-  const container = d3.select("#container").append("svg")
-        .attr("width", width)
-        .attr("height", height);
+  const groups = container.selectAll('.stack')
+        .data(data)
 
-  container.selectAll('rect')
-    .data(data)
-    .enter().append('g')
+  const stacks = groups.selectAll('rect')
+    .data(function(d){
+      return d.data;
+    })
+
+  groups.exit().remove()
+  groups.enter()
+    .append('g')
     .attr("class", "stack")
     .attr('transform', function(d, i) {
       return "translate(" + xScale(d.id) + ", 0)"
     })
-    .each(function(elem, idx){
-      d3.select(this).selectAll('rect')
-        .data(elem.data)
-        .enter().append('rect')
-        .attr("class", "elem")
-        .attr('y', function(elem, idx) { return idx * (elemHeight + 10); })
-        .attr('width', function() { return elemWidth; })
-        .attr('height', function() { return elemHeight; })
-        .attr('fill', 'steelblue')
-    });
+
+  stacks.exit().remove()
+  stacks.enter()
+    .append('rect')
+    .attr("class", "elem")
+    .attr('y', function(elem, idx) { return idx * (elemHeight + 10); })
+    .attr('width', function() { return elemWidth; })
+    .attr('height', function() { return elemHeight; })
+    .attr('fill', 'steelblue')
 
 }
 

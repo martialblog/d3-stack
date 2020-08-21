@@ -1,10 +1,11 @@
 const width = '100%';
 const height = '100%';
 
-const elemWidth = 100;
-const elemHeight = 30;
+const elemWidth = 10;
+const elemHeight = 10;
 
-const tree = {
+
+var tree = {
   "name": "root",
   "distance": 5.5,
   "children": [
@@ -75,6 +76,10 @@ const tree = {
     }
   ]
 }
+
+d3.json("http://localhost:8000/dendrogram.json").then(function(data){
+  tree = data
+})
 
 const hiera = d3.hierarchy(tree)
 var cutoffMin = Number.MAX_VALUE;
@@ -169,7 +174,7 @@ const render = data => {
 
   groupsEnter.merge(groups)
     .attr('transform', function(d) {
-      return "translate(" + (d.id * (elemWidth + 10)) + ",0)"
+      return "translate(" + (d.id * (elemWidth + 2)) + ",0)"
     })
 
   const stacksEnter= stacks.enter()
@@ -178,7 +183,7 @@ const render = data => {
 
   stacksEnter.merge(stacks)
     .attr('transform', function(d, idx) {
-      return "translate(0," + (idx * (elemHeight + 10)) + ")"
+      return "translate(0," + (idx * (elemHeight + 2)) + ")"
     })
 
   stacksEnter.append('rect')
@@ -186,10 +191,10 @@ const render = data => {
     .attr('height',  elemHeight)
     .attr('fill', 'steelblue')
 
-  stacksEnter.append('text')
-    .text(d => d)
-    .attr('y', 20)
-    .attr('x', 5)
+  // stacksEnter.append('text')
+  //   .text(d => d)
+  //   .attr('y', 20)
+  //   .attr('x', 5)
 
   groups.exit().remove()
   stacks.exit().remove()

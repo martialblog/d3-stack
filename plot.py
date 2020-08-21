@@ -34,26 +34,26 @@ labels = dict(enumerate(examples))
 
 def add_nodes(node, parent):
     # Recursively build tree as dict
-    new_node = dict(node_id=node.id, c=[], d=node.dist)
-    parent["c"].append(new_node)
+    new_node = dict(node_id=node.id, children=[], distance=node.dist)
+    parent["children"].append(new_node)
     if node.left: add_nodes(node.left, new_node)
     if node.right: add_nodes(node.right, new_node)
 
 def add_labels(node):
     # Recursively add labels to the tree
-    is_leaf = len(node["c"]) == 0
+    is_leaf = len(node["children"]) == 0
 
     if is_leaf:
-        node["n"] = labels[node["node_id"]]
+        node["name"] = labels[node["node_id"]]
     else:
         # node["name"] = "foo"
-        list(map(add_labels, node["c"]))
+        list(map(add_labels, node["children"]))
     del node["node_id"]
 
 scipy_tree = scipy.cluster.hierarchy.to_tree(model, rd=False)
-tree = dict(c=[], n="root", d=scipy_tree.dist)
+tree = dict(children=[], name="root", distance=scipy_tree.dist)
 
 add_nodes(scipy_tree, tree)
-add_labels(tree["c"][0])
+add_labels(tree["children"][0])
 
 dump(tree, open("/tmp/dendrogram.json", "w"), sort_keys=True, indent=2)

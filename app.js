@@ -1,5 +1,5 @@
 const width = '100%';
-const height = '400';
+const height = '100%';
 
 const elemWidth = 100;
 const elemHeight = 30;

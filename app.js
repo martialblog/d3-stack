@@ -109,9 +109,13 @@ function getAllLeaves(node) {
 
 function cutTree(node, threshold) {
   var clusters = [];
+
   function _cut(node) {
     if (node.distance <= threshold || node.children == null) {
-      clusters.push(getAllLeaves(node));
+      var cluster = {
+        data: getAllLeaves(node)
+      }
+      clusters.push(cluster);
       return
     }
     for (let child in node.children) {
@@ -119,45 +123,46 @@ function cutTree(node, threshold) {
     }
   }
   _cut(node);
-  console.log(clusters)
+
+  // TODO: Better solution?
+  for  (idx = 0; idx < clusters.length; idx++) {
+    clusters[idx].id = idx
+  }
+
   return clusters;
 }
 
-// const data = [
-//   { id: 0, data: new Array(4) },
-//   { id: 1, data: new Array(3) },
-//   { id: 2, data: new Array(2) },
-//   { id: 3, data: new Array(9) },
-// ]
+const render = data => {
 
-// const xScale = d3.scaleBand()
-//       .domain(data.map(d => d.id))
-//       .range([0, width])
+  const xScale = d3.scaleBand()
+        .domain(data.map(d => d.id))
+        .range([0, width])
 
-// const container = d3.select("#container").append("svg")
-//     .attr("width", width)
-//     .attr("height", height);
+  const container = d3.select("#container").append("svg")
+        .attr("width", width)
+        .attr("height", height);
 
-// container.selectAll('rect')
-//   .data(data)
-//   .enter().append('g')
-//   .attr("class", "stack")
-//   .attr('transform', function(d, i) {
-//     return "translate(" + xScale(d.id) + ", 0)"
-//   })
-//   .each(function(elem, idx){
-//     d3.select(this).selectAll('rect')
-//       .data(elem.data)
-//       .enter().append('rect')
-//       .attr("class", "elem")
-//       .attr('y', function(elem, idx) { return idx * (elemHeight + 10); })
-//       .attr('width', function() { return elemWidth; })
-//       .attr('height', function() { return elemHeight; })
-//       .attr('fill', 'steelblue')
-//   });
+  container.selectAll('rect')
+    .data(data)
+    .enter().append('g')
+    .attr("class", "stack")
+    .attr('transform', function(d, i) {
+      return "translate(" + xScale(d.id) + ", 0)"
+    })
+    .each(function(elem, idx){
+      d3.select(this).selectAll('rect')
+        .data(elem.data)
+        .enter().append('rect')
+        .attr("class", "elem")
+        .attr('y', function(elem, idx) { return idx * (elemHeight + 10); })
+        .attr('width', function() { return elemWidth; })
+        .attr('height', function() { return elemHeight; })
+        .attr('fill', 'steelblue')
+    });
 
+}
 
 function updateRange(value) {
-  var foo = cutTree(tree, value)
-  // console.log(foo)
+  var data = cutTree(tree, value)
+  render(data)
 }

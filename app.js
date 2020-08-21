@@ -1,36 +1,163 @@
-var data = [
-  { id: 0, data: ["elem1", "elem2"]},
-  { id: 1, data: ["elem3", "elem4"]},
-  { id: 3, data: ["elem5", "elem6", "elem7"]},
-  { i4: 3, data: ["elem5", "elem6", "elem7"]}
-]
-
 const width = 600;
 const height = 600;
 
-const xScale = d3.scaleBand()
-      .domain(data.map(d => d.id))
-      .range([0, width])
+const elemWidth = 100
+const elemHeight = 30
 
-const container = d3.select("#container").append("svg")
-    .attr("width", width)
-    .attr("height", height);
+const tree = {
+  "name": "root",
+  "distance": 5.5,
+  "children": [
+    {
+      "name": "someone",
+      "distance": 1.5,
+      "children": [
+        {
+          "name": "ned",
+          "distance": 0.0,
+          "children": []
+        },
+        {
+          "name": "catelyn",
+          "distance": 0.71,
+          "children": [
+            {
+              "name": "sansa",
+              "distance": 0.0,
+              "children": []
+            },
+            {
+              "name": "rickon",
+              "distance": 0.0,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "balon",
+      "distance": 2.05,
+      "children": [
+        {
+          "name": "yara",
+          "distance": 0.0,
+          "children": []
+        },
+        {
+          "name": "foobar",
+          "distance": 1.9,
+          "children": [
+            {
+              "name": "john",
+              "distance": 0.0,
+              "children": []
+            },
+            {
+              "name": "somebody",
+              "distance": 1.12,
+              "children": [
+                {
+                  "name": "euron",
+                  "distance": 0.0,
+                  "children": []
+                },
+                {
+                  "name": "theon",
+                  "distance": 0.0,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 
-container.selectAll('rect')
-  .data(data)
-  .enter().append('g')
-  .attr("class", "stack")
-  .attr('transform', function(d, i) {
-    return "translate(" + xScale(d.id) + ", 0)"
-  })
-  .each(function(elem, idx){
-    d3.select(this).selectAll('rect')
-      .data(elem.data)
-      .enter().append('rect')
-      .attr("class", "elem")
-      .attr('y', function(elem, idx) { return idx * 200; })
-      //.attr('x', function() { return idx * 200; })
-      .attr('width', function() { return 100; })
-      .attr('height', function() { return 50; })
-      .attr('fill', 'red')
-  });
+const hiera = d3.hierarchy(tree)
+var cutoffMin = Number.MAX_VALUE;
+var cutoffMax = Number.MIN_VALUE;
+
+hiera.descendants().forEach(function (node) {
+    if (node.data.distance !== null) {
+      if (node.data.distance > cutoffMax) cutoffMax = node.data.distance;
+      if (node.data.distance < cutoffMin) cutoffMin = node.data.distance;
+    }
+});
+
+document.getElementById("cutoff").min = cutoffMin
+document.getElementById("cutoff").max = cutoffMax
+document.getElementById("cutoff").step = 0.1
+
+
+function getAllLeaves(node) {
+  var leaves = [];
+  function _getLeaves(node) {
+    if (node.children.length == 0) {
+      leaves.push(node.name)
+      return
+    }
+    for (let child in node.children) {
+      _getLeaves(node.children[child]);
+    }
+  }
+  _getLeaves(node);
+  return leaves;
+}
+
+function cutTree(node, threshold) {
+  var clusters = [];
+  function _cut(node) {
+    if (node.distance <= threshold || node.children == null) {
+      clusters.push(getAllLeaves(node));
+      return
+    }
+    for (let child in node.children) {
+      _cut(node.children[child]);
+    }
+  }
+  _cut(node);
+  console.log(clusters)
+  return clusters;
+}
+
+// const data = [
+//   { id: 0, data: new Array(4) },
+//   { id: 1, data: new Array(3) },
+//   { id: 2, data: new Array(2) },
+//   { id: 3, data: new Array(9) },
+// ]
+
+// const xScale = d3.scaleBand()
+//       .domain(data.map(d => d.id))
+//       .range([0, width])
+
+// const container = d3.select("#container").append("svg")
+//     .attr("width", width)
+//     .attr("height", height);
+
+// container.selectAll('rect')
+//   .data(data)
+//   .enter().append('g')
+//   .attr("class", "stack")
+//   .attr('transform', function(d, i) {
+//     return "translate(" + xScale(d.id) + ", 0)"
+//   })
+//   .each(function(elem, idx){
+//     d3.select(this).selectAll('rect')
+//       .data(elem.data)
+//       .enter().append('rect')
+//       .attr("class", "elem")
+//       .attr('y', function(elem, idx) { return idx * (elemHeight + 10); })
+//       .attr('width', function() { return elemWidth; })
+//       .attr('height', function() { return elemHeight; })
+//       .attr('fill', 'steelblue')
+//   });
+
+
+function updateRange(value) {
+  var foo = cutTree(tree, value)
+  // console.log(foo)
+}

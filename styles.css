@@ -10,3 +10,7 @@ text {
     font-family: 'sans-serif';
     fill: #fff;
 }
+
+.stack:hover {
+    cursor: pointer;
+}

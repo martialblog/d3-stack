@@ -148,6 +148,7 @@ const render = data => {
   var groupsEnter = groups.enter()
       .append('g')
       .attr("class", "stack")
+      .on("click", function(d){console.log(d)})
 
   groupsEnter.merge(groups)
     .attr('transform', function(d) {

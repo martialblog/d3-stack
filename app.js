@@ -91,71 +91,88 @@ document.getElementById("cutoff").min = cutoffMin
 document.getElementById("cutoff").max = cutoffMax
 document.getElementById("cutoff").step = 0.1
 
+const container = d3.select("#container").append("svg")
+      .attr("width", width)
+      .attr("height", height)
+
+const listing = d3.select("#list").append("ul")
 
 function getAllLeaves(node) {
-  var leaves = [];
+  var leaves = []
   function _getLeaves(node) {
     if (node.children.length == 0) {
       leaves.push(node.name)
       return
     }
     for (let child in node.children) {
-      _getLeaves(node.children[child]);
+      _getLeaves(node.children[child])
     }
   }
-  _getLeaves(node);
-  return leaves;
+  _getLeaves(node)
+  return leaves
 }
 
 function cutTree(node, threshold) {
-  var clusters = [];
+  var clusters = []
 
   function _cut(node) {
     if (node.distance <= threshold || node.children == null) {
       var cluster = {
         data: getAllLeaves(node)
       }
-      clusters.push(cluster);
+      clusters.push(cluster)
       return
     }
     for (let child in node.children) {
-      _cut(node.children[child]);
+      _cut(node.children[child])
     }
   }
-  _cut(node);
+  _cut(node)
 
   // TODO: Better solution?
   for  (idx = 0; idx < clusters.length; idx++) {
     clusters[idx].id = idx
   }
 
-  return clusters;
+  return clusters
 }
 
 
-const container = d3.select("#container").append("svg")
-      .attr("width", width)
-      .attr("height", height);
+const list = data => {
 
+  const lists = listing.selectAll('li')
+        .data(data.data)
+
+  lists.enter().append('li')
+    .merge(lists)
+    .html(String)
+
+  lists.exit().remove()
+
+}
+
+
+
+// Where the magic happens
 const render = data => {
 
-  var groups = container.selectAll('.stack')
+  const groups = container.selectAll('.stack')
         .data(data)
 
-  var stacks = groups.selectAll('.elem')
+  const stacks = groups.selectAll('.elem')
         .data(d => d.data)
 
-  var groupsEnter = groups.enter()
+  const groupsEnter = groups.enter()
       .append('g')
       .attr("class", "stack")
-      .on("click", function(d){console.log(d)})
+      .on("click", function(d){list(d)})
 
   groupsEnter.merge(groups)
     .attr('transform', function(d) {
       return "translate(" + (d.id * (elemWidth + 10)) + ",0)"
     })
 
-  var stacksEnter= stacks.enter()
+  const stacksEnter= stacks.enter()
       .append('g')
       .attr("class", "elem")
 

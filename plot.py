@@ -8,24 +8,19 @@ INPUT = '/home/markus/github/histnorm/datasets/historical/german/german-anselm.t
 with open(INPUT, "r", encoding="utf-8") as infile:
     text = [line.strip().split("\t")[1] for line in infile]
 
-n = 1000 # number of tokens
+# n = 1000 # number of tokens
+# examples = text[:n]
 
 sim = sm.Levenshtein()
 
-examples = text[:n]
+examples = list(set(text[:10000]))
+print(len(examples))
+
 tokens = np.array(examples).reshape(-1,1)
 matrix = scipy.spatial.distance.pdist(tokens, lambda x,y: sim.get_raw_score(str(x[0]),str(y[0])))
 
 linkage_method = 'ward'
 model = scipy.cluster.hierarchy.linkage(matrix, linkage_method)
-
-fig = ff.create_dendrogram(
-    model, orientation='left', labels=examples,
-    linkagefun=lambda x: scipy.cluster.hierarchy.linkage(matrix, linkage_method)
-)
-
-# fig.update_layout(width=1400, height=900)
-# fig.write_html("/tmp/plotly.html")
 
 from functools import reduce
 from json import dump

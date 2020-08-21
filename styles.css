@@ -3,9 +3,16 @@
     background: #eee;
 }
 
+#list {
+    height: 300px;
+    background: #eee;
+    overflow: scroll;
+}
+
 .l-box {
     padding: 1em;
 }
+
 text {
     font-family: 'sans-serif';
     fill: #fff;
@@ -13,4 +20,8 @@ text {
 
 .stack:hover {
     cursor: pointer;
+}
+
+li {
+    list-style-type: square;
 }

@@ -1,10 +1,6 @@
 const width = '100%';
 const height = '100%';
 
-const elemWidth = 10;
-const elemHeight = 10;
-
-
 var tree = {
   "name": "root",
   "distance": 5.5,
@@ -157,9 +153,11 @@ const list = data => {
 }
 
 
-
 // Where the magic happens
 const render = data => {
+
+  const elemWidth = 8;
+  const elemHeight = 8;
 
   const groups = container.selectAll('.stack')
         .data(data)
@@ -174,7 +172,7 @@ const render = data => {
 
   groupsEnter.merge(groups)
     .attr('transform', function(d) {
-      return "translate(" + (d.id * (elemWidth + 2)) + ",0)"
+      return "translate(" + (d.id * (elemWidth + 1)) + ",0)"
     })
 
   const stacksEnter= stacks.enter()
@@ -183,7 +181,7 @@ const render = data => {
 
   stacksEnter.merge(stacks)
     .attr('transform', function(d, idx) {
-      return "translate(0," + (idx * (elemHeight + 2)) + ")"
+      return "translate(0," + (idx * (elemHeight + 1)) + ")"
     })
 
   stacksEnter.append('rect')

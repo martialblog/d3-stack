@@ -1,5 +1,5 @@
-const width = 1000;
-const height = 600;
+const width = '100%';
+const height = '400';
 
 const elemWidth = 100;
 const elemHeight = 30;
@@ -139,8 +139,6 @@ const container = d3.select("#container").append("svg")
 
 const render = data => {
 
-  console.log(data)
-
   var groups = container.selectAll('.stack')
         .data(data)
 
@@ -153,7 +151,7 @@ const render = data => {
 
   groupsEnter.merge(groups)
     .attr('transform', function(d) {
-      return "translate(" + (d.id * (10 + elemWidth)) + ",0)"
+      return "translate(" + (d.id * (elemWidth + 10)) + ",0)"
     })
 
   var stacksEnter= stacks.enter()
@@ -166,20 +164,22 @@ const render = data => {
     })
 
   stacksEnter.append('rect')
-    .attr('width', elemWidth )
+    .attr('width', elemWidth)
     .attr('height',  elemHeight)
     .attr('fill', 'steelblue')
 
   stacksEnter.append('text')
     .text(d => d)
-    .attr('y', elemHeight / 2)
-    .attr('x', 10)
+    .attr('y', 20)
+    .attr('x', 5)
 
   groups.exit().remove()
   stacks.exit().remove()
 }
 
 function updateRange(value) {
+  document.getElementById("cutoffLabel").textContent = value
+
   var data = cutTree(tree, value)
   render(data)
 }

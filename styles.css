@@ -1,10 +1,11 @@
 #container {
-    width: 1000px;
-    height: 600px;
     background: #eee;
 }
 
+.l-box {
+    padding: 1em;
+}
 text {
     font-family: 'sans-serif';
-    fill: #fff
+    fill: #fff;
 }

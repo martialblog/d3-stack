@@ -1,8 +1,8 @@
-const width = 900;
+const width = 1000;
 const height = 600;
 
-const elemWidth = 100
-const elemHeight = 30
+const elemWidth = 100;
+const elemHeight = 30;
 
 const tree = {
   "name": "root",
@@ -139,35 +139,44 @@ const container = d3.select("#container").append("svg")
 
 const render = data => {
 
-  const xScale = d3.scaleBand()
-        .domain(data.map(d => d.id))
-        .range([0, width])
+  console.log(data)
 
-  const groups = container.selectAll('.stack')
+  var groups = container.selectAll('.stack')
         .data(data)
 
-  const stacks = groups.selectAll('rect')
-    .data(function(d){
-      return d.data;
+  var stacks = groups.selectAll('.elem')
+        .data(d => d.data)
+
+  var groupsEnter = groups.enter()
+      .append('g')
+      .attr("class", "stack")
+
+  groupsEnter.merge(groups)
+    .attr('transform', function(d) {
+      return "translate(" + (d.id * (10 + elemWidth)) + ",0)"
     })
 
-  groups.exit().remove()
-  groups.enter()
-    .append('g')
-    .attr("class", "stack")
-    .attr('transform', function(d, i) {
-      return "translate(" + xScale(d.id) + ", 0)"
+  var stacksEnter= stacks.enter()
+      .append('g')
+      .attr("class", "elem")
+
+  stacksEnter.merge(stacks)
+    .attr('transform', function(d, idx) {
+      return "translate(0," + (idx * (elemHeight + 10)) + ")"
     })
 
-  stacks.exit().remove()
-  stacks.enter()
-    .append('rect')
-    .attr("class", "elem")
-    .attr('y', function(elem, idx) { return idx * (elemHeight + 10); })
-    .attr('width', function() { return elemWidth; })
-    .attr('height', function() { return elemHeight; })
+  stacksEnter.append('rect')
+    .attr('width', elemWidth )
+    .attr('height',  elemHeight)
     .attr('fill', 'steelblue')
 
+  stacksEnter.append('text')
+    .text(d => d)
+    .attr('y', elemHeight / 2)
+    .attr('x', 10)
+
+  groups.exit().remove()
+  stacks.exit().remove()
 }
 
 function updateRange(value) {

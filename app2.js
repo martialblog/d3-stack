@@ -85,7 +85,7 @@ function init(root) {
         .attr("height", height)
 
   window.tree = d3.tree()
-    .size([500, 500])(window.root)
+    .size([500, 900/2])(window.root)
 
   var cutoffMin = Number.MAX_VALUE;
   var cutoffMax = Number.MIN_VALUE;
@@ -146,18 +146,13 @@ function cutTree(node, threshold) {
 }
 
 const diagonal = function (d) {
-
-  var line = d3.line()
-      .x(function (point) { return point.ly })
-      .y(function (point) { return point.lx })
-
-  const points = [
-    { lx: d.source.x, ly: d.source.y },
-    { lx: d.target.x, ly: d.source.y },
-    { lx: d.target.x, ly: d.target.y }
-  ]
-
-  return line(points)
+  return d3.line().x(point =>  point.ly).y(point =>  point.lx)(
+    [
+      {lx: d.source.x, ly: d.source.y},
+      {lx: d.target.x, ly: d.source.y},
+      {lx: d.target.x, ly: d.target.y}
+    ]
+  )
 }
 
 // Where the magic happens
@@ -168,6 +163,23 @@ const render = data => {
   var treeNodes = window.root.descendants()
   var treeLinks = window.root.links()
 
+  var nodes = window.container.selectAll('.node')
+        .data(treeNodes)
+
+  const nodesEnter= nodes.enter()
+      .append('g')
+        .attr("class", "node")
+        .attr("transform", d => "translate(" + d.y + "," + d.x + ")")
+
+  nodesEnter.append('rect')
+    .attr('class', 'node')
+    .attr('width', '10px')
+    .attr('height', '10px')
+    .attr('fill', 'steelblue')
+
+  nodesEnter.append('text')
+    .text((d => d.data.name))
+
   var links = window.container.selectAll('.link')
         .data(treeLinks)
 
@@ -175,28 +187,12 @@ const render = data => {
         .append('path')
         .attr('class', 'link')
         .attr('fill', 'none')
-        .attr('stroke', 'black')
-        .attr('stroke-width', '2px')
+        .attr('stroke', 'steelblue')
+        .attr('stroke-width', '1px')
         .attr("d", diagonal)
 
-  var nodes = window.container.selectAll('.node')
-        .data(treeNodes)
-
-  const nodesEnter= nodes.enter()
-      .append('g')
-      .attr("class", "node")
-        .attr("transform", function(d) {
-          return "translate(" + d.y + "," + d.x + ")";
-        });
-
-  nodesEnter.append('rect')
-    .attr('class', 'node')
-    .attr('width', '10px')
-    .attr('height', '10px')
-    .attr('fill', 'black')
-
-  nodes.exit().remove()
-  links.exit().remove()
+  // nodes.exit().remove()
+  // links.exit().remove()
 }
 
 function updateRange(value) {

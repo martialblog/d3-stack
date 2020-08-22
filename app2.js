@@ -71,9 +71,8 @@ var data = {
 }
 
 window.data = data
-window.root = d3.hierarchy(data)
 
-init(window.root)
+init(data)
 
 function init(root) {
 
@@ -84,13 +83,10 @@ function init(root) {
         .attr("width", width)
         .attr("height", height)
 
-  window.tree = d3.tree()
-    .size([500, 900/2])(window.root)
-
   var cutoffMin = Number.MAX_VALUE;
   var cutoffMax = Number.MIN_VALUE;
 
-  root.descendants().forEach(function (node) {
+  d3.hierarchy(data).descendants().forEach(function (node) {
     if (node.data.distance !== null) {
       if (node.data.distance > cutoffMax) cutoffMax = node.data.distance;
       if (node.data.distance < cutoffMin) cutoffMin = node.data.distance;
@@ -100,7 +96,6 @@ function init(root) {
   document.getElementById("cutoff").min = cutoffMin
   document.getElementById("cutoff").max = cutoffMax
   document.getElementById("cutoff").step = 0.1
-
   // TODO: First render here?
 }
 
@@ -109,7 +104,7 @@ function getAllLeaves(node) {
   var leaves = []
   function _getLeaves(node) {
     if (node.children.length == 0) {
-      leaves.push(node.name)
+      leaves.push({"name": node.name, "distance": node.distance, "children": []})
       return
     }
     for (let child in node.children) {
@@ -121,14 +116,10 @@ function getAllLeaves(node) {
 }
 
 function cutTree(node, threshold) {
-  var clusters = []
 
   function _cut(node) {
     if (node.distance <= threshold || node.children == null) {
-      var cluster = {
-        data: getAllLeaves(node)
-      }
-      clusters.push(cluster)
+      node.children = getAllLeaves(node)
       return
     }
     for (let child in node.children) {
@@ -137,12 +128,7 @@ function cutTree(node, threshold) {
   }
   _cut(node)
 
-  // TODO: Better solution?
-  for  (idx = 0; idx < clusters.length; idx++) {
-    clusters[idx].id = idx
-  }
-
-  return clusters
+  return node
 }
 
 const diagonal = function (d) {
@@ -157,9 +143,10 @@ const diagonal = function (d) {
 
 // Where the magic happens
 const render = data => {
-  // data currently is the list of cutoff clusters
 
-  // window.tree(window.root)
+  root = d3.hierarchy(data)
+  tree = d3.tree().size([500, 800])(root)
+
   var treeNodes = window.root.descendants()
   var treeLinks = window.root.links()
 
@@ -191,8 +178,8 @@ const render = data => {
         .attr('stroke-width', '1px')
         .attr("d", diagonal)
 
-  // nodes.exit().remove()
-  // links.exit().remove()
+  nodes.exit().remove()
+  links.exit().remove()
 }
 
 function updateRange(value) {

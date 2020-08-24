@@ -3,25 +3,25 @@ const data = {
   "distance": 5.5,
   "children": [
     {
-      "name": "someone",
+      "name": "non-leaf1",
       "distance": 1.5,
       "children": [
         {
-          "name": "ned",
+          "name": "leaf-1",
           "distance": 0.0,
           "children": []
         },
         {
-          "name": "catelyn",
+          "name": "non-leaf-2",
           "distance": 0.71,
           "children": [
             {
-              "name": "sansa",
+              "name": "leaf-2-1",
               "distance": 0.0,
               "children": []
             },
             {
-              "name": "rickon",
+              "name": "leaf-2-2",
               "distance": 0.0,
               "children": []
             }
@@ -30,34 +30,34 @@ const data = {
       ]
     },
     {
-      "name": "balon",
+      "name": "non-leaf-3",
       "distance": 2.05,
       "children": [
         {
-          "name": "yara",
+          "name": "leaf-3",
           "distance": 0.0,
           "children": []
         },
         {
-          "name": "foobar",
+          "name": "non-leaf-4",
           "distance": 1.9,
           "children": [
             {
-              "name": "john",
+              "name": "leaf-4",
               "distance": 0.0,
               "children": []
             },
             {
-              "name": "somebody",
+              "name": "non-leaf-5",
               "distance": 1.12,
               "children": [
                 {
-                  "name": "euron",
+                  "name": "leaf-5-1",
                   "distance": 0.0,
                   "children": []
                 },
                 {
-                  "name": "theon",
+                  "name": "leaf-5-2",
                   "distance": 0.0,
                   "children": []
                 }
@@ -95,7 +95,7 @@ function init(root) {
 
   document.getElementById("cutoff").min = cutoffMin
   document.getElementById("cutoff").max = cutoffMax
-  document.getElementById("cutoff").step = 0.5
+  document.getElementById("cutoff").step = 0.1
   // TODO: First render here?
 }
 
@@ -143,44 +143,66 @@ const diagonal = function (d) {
 
 const leaves = function (d, idx) {
   if (d.children == null) {
-    return `translate(${d.y},${d.x})`
+    console.log('index: ' + idx)
+    console.log('parent index: ' + d.parent.index)
+    console.log('should: ' + (idx - d.parent.index - 1))
+    console.log('')
+    return `translate(${d.parent.y + (idx * 15)}, ${d.parent.x})`
   }
   else {
     return `translate(${d.y},${d.x})`
   }
 }
 
+const colour = function (d) {
+  if (d.data.children.length == 0) {
+    return 'steelblue'
+  }
+  else {
+    return 'red'
+  }
+}
+
 // Where the magic happens
 const render = data => {
 
-  root = d3.hierarchy(data)
-  tree = d3.tree().size([500, 500])(root)
+  const root = d3.hierarchy(data)
+  const tree = d3.tree().size([500, 500])(root)
 
-  var treeNodes = window.root.descendants()
-  var treeLinks = window.root.links()
+  var treeNodes = root.descendants()
+  var treeLinks = root.links()
 
-  // console.log(data)
+  // Add index to each node, so that we can get the parents index
+  for  (idx = 0; idx < treeNodes.length; idx++) {
+    treeNodes[idx].index = idx
+  }
+
+  console.log(treeNodes)
 
   var nodes = window.container.selectAll('.node')
         .data(treeNodes)
 
-  const nodesEnter= nodes.enter()
+  var nodesEnter= nodes.enter()
       .append('g')
-        .attr("class", "node")
+      .attr("class", "node")
 
   nodesEnter.merge(nodes)
-        .attr("transform", leaves)
+    .attr("transform", leaves)
 
   nodesEnter.append('rect')
     .attr('width', '10px')
     .attr('height', '10px')
-    .attr('fill', 'steelblue')
 
-  nodesEnter.append('text')
-    .text((d => d.data.name))
+  // nodesEnter.append('text')
+  //   .text((d => d.data.name))
 
-  var links = window.container.selectAll('.link')
-        .data(treeLinks)
+  nodesEnter.merge(nodes)
+    .attr('fill', colour)
+
+  nodes.exit().remove()
+
+  // var links = window.container.selectAll('.link')
+  //       .data(treeLinks)
 
   // TODO: render links correctly, whatever that means
   // const linksEnter= links.enter()
@@ -191,15 +213,16 @@ const render = data => {
   //       .attr('stroke-width', '1px')
   //       .attr('d', diagonal)
 
-  nodes.exit().remove()
-  links.exit().remove()
+  // links.exit().remove()
 }
 
 function updateRange(value) {
   document.getElementById("cutoffLabel").textContent = value
 
-  // Needs a pass by value
+  // Needs a pass-by-value
+  // Use d3-hierachy copy?
   var _data = JSON.parse(JSON.stringify(window.data))
+
   var data = cutTree(_data, value)
 
   render(data)

@@ -68,9 +68,9 @@ function cutTree(node, threshold) {
 const diagonal = function (d) {
   return d3.line().x(point =>  point.ly).y(point =>  point.lx)(
     [
-      {lx: d.source.x, ly: d.source.y},
-      {lx: d.target.x, ly: d.source.y},
-      {lx: d.target.x, ly: d.target.y}
+      {lx: d.source.x, ly: d.source.y/2},
+      {lx: d.target.x, ly: d.source.y/2},
+      {lx: d.target.x, ly: d.target.y/2}
     ]
   )
 }
@@ -79,14 +79,14 @@ const list = data => {
   // TODO
 }
 
-const leaves = function (d) {
+const coord = function (d) {
   if (d.children == null) {
     // TODO: This can probably be fixed elsewhere
     const idx = d.data.index ? d.data.index : 1
-    return `translate(${d.parent.y + (idx * 12)}, ${d.parent.x})`
+    return `translate(${d.parent.y/2 + (idx * 11)}, ${d.parent.x})`
   }
   else {
-    return `translate(${d.y},${d.x})`
+    return `translate(${d.y/2},${d.x})`
   }
 }
 
@@ -95,7 +95,7 @@ const colour = function (d) {
     return 'steelblue'
   }
   else {
-    return 'red'
+    return '#f8766d'
   }
 }
 
@@ -106,7 +106,7 @@ const render = data => {
   var treeNodes = root.descendants()
   var treeLinks = root.links()
 
-  var h_tree = treeNodes.filter(d => d.data.children.length > 1).length * 10
+  var h_tree = treeNodes.filter(d => d.data.children.length > 1).length * 15
   var h_cont = document.getElementById('container').clientHeight
 
   var width = 1000
@@ -125,7 +125,7 @@ const render = data => {
       .on("click", function(d){list(d)})
 
   nodesEnter.merge(nodes)
-    .attr("transform", leaves)
+    .attr("transform", coord)
 
   nodesEnter.append('rect')
     .attr('width', '10px')

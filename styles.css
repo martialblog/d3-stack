@@ -1,0 +1,14 @@
+#container {
+    height: 100vh;
+    background: #eee;
+    overflow: scroll;
+}
+
+.l-box {
+    padding: 1em;
+}
+
+text {
+    font-family: 'sans-serif';
+    fill: #000;
+}

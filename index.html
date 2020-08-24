@@ -1,0 +1,37 @@
+<!doctype html>
+<meta charset="utf-8" />
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="lib/css/pure-min.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <title>Stacked Tree</title>
+</head>
+<body>
+
+  <div id="layout" class="pure-g">
+    <div class="pure-u-1-5">
+      <div class="l-box">
+        <form class="pure-form">
+          <fieldset>
+            <input
+              type="range"
+              id="cutoff"
+              onchange="updateRange(this.value)"
+              oninput="updateRange(this.value)"
+              >
+          </fieldset>
+          <p><span>Cutoff: <span><span id="cutoffLabel"></span></p>
+        </form>
+      </div>
+    </div>
+    <div class="pure-u-4-5">
+      <div class="l-box" id="container"></div>
+    </div>
+  </div>
+
+  <script src="lib/js/d3.v5.min.js"></script>
+  <script src="lib/js/d3-hierarchy.v1.min.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

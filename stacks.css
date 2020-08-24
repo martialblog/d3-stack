@@ -1,0 +1,28 @@
+#container {
+    height: 100vh;
+    background: #eee;
+    overflow: scroll;
+}
+
+#list {
+    height: 300px;
+    background: #eee;
+    overflow: scroll;
+}
+
+.l-box {
+    padding: 1em;
+}
+
+text {
+    font-family: 'sans-serif';
+    fill: #fff;
+}
+
+.stack:hover {
+    cursor: pointer;
+}
+
+li {
+    list-style-type: square;
+}

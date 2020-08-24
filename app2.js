@@ -1,4 +1,4 @@
-var data = {
+const data = {
   "name": "root",
   "distance": 5.5,
   "children": [
@@ -95,7 +95,7 @@ function init(root) {
 
   document.getElementById("cutoff").min = cutoffMin
   document.getElementById("cutoff").max = cutoffMax
-  document.getElementById("cutoff").step = 0.1
+  document.getElementById("cutoff").step = 0.5
   // TODO: First render here?
 }
 
@@ -118,7 +118,7 @@ function getAllLeaves(node) {
 function cutTree(node, threshold) {
 
   function _cut(node) {
-    if (node.distance <= threshold || node.children == null) {
+    if (node.distance <= threshold && node.children.length > 0) {
       node.children = getAllLeaves(node)
       return
     }
@@ -141,14 +141,25 @@ const diagonal = function (d) {
   )
 }
 
+const leaves = function (d, idx) {
+  if (d.children == null) {
+    return `translate(${d.y},${d.x})`
+  }
+  else {
+    return `translate(${d.y},${d.x})`
+  }
+}
+
 // Where the magic happens
 const render = data => {
 
   root = d3.hierarchy(data)
-  tree = d3.tree().size([500, 800])(root)
+  tree = d3.tree().size([500, 500])(root)
 
   var treeNodes = window.root.descendants()
   var treeLinks = window.root.links()
+
+  // console.log(data)
 
   var nodes = window.container.selectAll('.node')
         .data(treeNodes)
@@ -156,10 +167,11 @@ const render = data => {
   const nodesEnter= nodes.enter()
       .append('g')
         .attr("class", "node")
-        .attr("transform", d => "translate(" + d.y + "," + d.x + ")")
+
+  nodesEnter.merge(nodes)
+        .attr("transform", leaves)
 
   nodesEnter.append('rect')
-    .attr('class', 'node')
     .attr('width', '10px')
     .attr('height', '10px')
     .attr('fill', 'steelblue')
@@ -170,13 +182,14 @@ const render = data => {
   var links = window.container.selectAll('.link')
         .data(treeLinks)
 
-  const linksEnter= links.enter()
-        .append('path')
-        .attr('class', 'link')
-        .attr('fill', 'none')
-        .attr('stroke', 'steelblue')
-        .attr('stroke-width', '1px')
-        .attr("d", diagonal)
+  // TODO: render links correctly, whatever that means
+  // const linksEnter= links.enter()
+  //       .append('path')
+  //       .attr('class', 'link')
+  //       .attr('fill', 'none')
+  //       .attr('stroke', 'steelblue')
+  //       .attr('stroke-width', '1px')
+  //       .attr('d', diagonal)
 
   nodes.exit().remove()
   links.exit().remove()
@@ -185,6 +198,9 @@ const render = data => {
 function updateRange(value) {
   document.getElementById("cutoffLabel").textContent = value
 
-  var data = cutTree(window.data, value)
+  // Needs a pass by value
+  var _data = JSON.parse(JSON.stringify(window.data))
+  var data = cutTree(_data, value)
+
   render(data)
 }

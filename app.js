@@ -1,20 +1,12 @@
-// window.data = data
-// init(data)
-
 d3.json("http://localhost:8000/dendrogram.json").then(function(data){
   window.data = data
   init(data)
 })
 
-
 function init(root) {
 
-  var width = '100%'
-  var height = '100%'
-
-  window.container = d3.select("#container").append("svg")
-        .attr("width", width)
-        .attr("height", height)
+  window.container = d3.select("#container")
+    .append("svg")
 
   var cutoffMin = Number.MAX_VALUE;
   var cutoffMax = Number.MIN_VALUE;
@@ -84,9 +76,7 @@ const diagonal = function (d) {
 }
 
 const list = data => {
-
   // TODO
-
 }
 
 const leaves = function (d) {
@@ -113,10 +103,18 @@ const colour = function (d) {
 const render = data => {
 
   const root = d3.hierarchy(data)
-  // TODO: better size calculation
-  const tree = d3.cluster().size([800, 1000])(root)
-
   var treeNodes = root.descendants()
+  var treeLinks = root.links()
+
+  var h_tree = treeNodes.filter(d => d.data.children.length > 1).length * 10
+  var h_cont = document.getElementById('container').clientHeight
+
+  var width = 1000
+  var height = (h_tree <= h_cont) ? h_cont : h_tree
+  // var width = document.getElementById('container').clientWidth
+
+  const tree = d3.cluster().size([height, width])(root)
+  window.container.merge(window.container).attr("width", width).attr("height", height)
 
   var nodes = window.container.selectAll('.node')
         .data(treeNodes)
@@ -130,15 +128,13 @@ const render = data => {
     .attr("transform", leaves)
 
   nodesEnter.append('rect')
-    .attr('width', '8px')
-    .attr('height', '8px')
+    .attr('width', '10px')
+    .attr('height', '10px')
 
   nodesEnter.merge(nodes)
     .attr('fill', colour)
 
   nodes.exit().remove()
-
-  var treeLinks = root.links()
 
   // filters out all leaves
   var links = window.container.selectAll('.link')

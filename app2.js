@@ -70,9 +70,14 @@ const data = {
   ]
 }
 
-window.data = data
+// window.data = data
+// init(data)
 
-init(data)
+d3.json("http://localhost:8000/dendrogram.json").then(function(data){
+  window.data = data
+  init(data)
+})
+
 
 function init(root) {
 
@@ -171,7 +176,7 @@ const colour = function (d) {
 const render = data => {
 
   const root = d3.hierarchy(data)
-  const tree = d3.tree().size([500, 500])(root)
+  const tree = d3.tree().size([2000, 1000])(root)
 
   var treeNodes = root.descendants()
   var treeLinks = root.links()
@@ -219,8 +224,6 @@ function updateRange(value) {
   // Needs a pass-by-value
   // Use d3-hierachy copy?
   var _data = JSON.parse(JSON.stringify(window.data))
-  console.log(_data)
   var data = cutTree(_data, value)
-
   render(data)
 }

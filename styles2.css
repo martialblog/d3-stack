@@ -1,6 +1,5 @@
 #container {
-    /* height: 100vh; */
-    height: 2000px;
+    height: 100vh;
     background: #eee;
     overflow: scroll;
 }

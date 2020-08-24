@@ -1,98 +1,25 @@
-// var tree = {
-//   "name": "root",
-//   "distance": 5.5,
-//   "children": [
-//     {
-//       "name": "someone",
-//       "distance": 1.5,
-//       "children": [
-//         {
-//           "name": "ned",
-//           "distance": 0.0,
-//           "children": []
-//         },
-//         {
-//           "name": "catelyn",
-//           "distance": 0.71,
-//           "children": [
-//             {
-//               "name": "sansa",
-//               "distance": 0.0,
-//               "children": []
-//             },
-//             {
-//               "name": "rickon",
-//               "distance": 0.0,
-//               "children": []
-//             }
-//           ]
-//         }
-//       ]
-//     },
-//     {
-//       "name": "balon",
-//       "distance": 2.05,
-//       "children": [
-//         {
-//           "name": "yara",
-//           "distance": 0.0,
-//           "children": []
-//         },
-//         {
-//           "name": "foobar",
-//           "distance": 1.9,
-//           "children": [
-//             {
-//               "name": "john",
-//               "distance": 0.0,
-//               "children": []
-//             },
-//             {
-//               "name": "somebody",
-//               "distance": 1.12,
-//               "children": [
-//                 {
-//                   "name": "euron",
-//                   "distance": 0.0,
-//                   "children": []
-//                 },
-//                 {
-//                   "name": "theon",
-//                   "distance": 0.0,
-//                   "children": []
-//                 }
-//               ]
-//             }
-//           ]
-//         }
-//       ]
-//     }
-//   ]
-// }
+// window.data = data
+// init(data)
 
 d3.json("http://localhost:8000/dendrogram.json").then(function(data){
-  window.tree = data
-  var hiera = d3.hierarchy(data)
-  init(hiera)
+  window.data = data
+  init(data)
 })
 
 
-function init(hiera) {
+function init(root) {
 
-  var width = '100%';
-  // TODO: Correct calculation?
-  var height = (4 * hiera.descendants().length) + 'px';
+  var width = '100%'
+  var height = '100%'
 
   window.container = d3.select("#container").append("svg")
         .attr("width", width)
         .attr("height", height)
 
-  window.listing = d3.select("#list").append("ul")
-
   var cutoffMin = Number.MAX_VALUE;
   var cutoffMax = Number.MIN_VALUE;
 
-  hiera.descendants().forEach(function (node) {
+  d3.hierarchy(data).descendants().forEach(function (node) {
     if (node.data.distance !== null) {
       if (node.data.distance > cutoffMax) cutoffMax = node.data.distance;
       if (node.data.distance < cutoffMin) cutoffMin = node.data.distance;
@@ -101,16 +28,19 @@ function init(hiera) {
 
   document.getElementById("cutoff").min = cutoffMin
   document.getElementById("cutoff").max = cutoffMax
-  document.getElementById("cutoff").step = 0.1
-
+  document.getElementById("cutoff").step = 1
+  // TODO: First render here?
 }
-
 
 function getAllLeaves(node) {
   var leaves = []
   function _getLeaves(node) {
     if (node.children.length == 0) {
-      leaves.push(node.name)
+      leaves.push({
+        "name": node.name,
+        "distance": node.distance,
+        "children": []
+      })
       return
     }
     for (let child in node.children) {
@@ -118,18 +48,20 @@ function getAllLeaves(node) {
     }
   }
   _getLeaves(node)
+
+  // Add index to each node, so that we can use it later
+  for  (idx = 0; idx < leaves.length; idx++) {
+    leaves[idx].index = idx + 1
+  }
+
   return leaves
 }
 
 function cutTree(node, threshold) {
-  var clusters = []
 
   function _cut(node) {
-    if (node.distance <= threshold || node.children == null) {
-      var cluster = {
-        data: getAllLeaves(node)
-      }
-      clusters.push(cluster)
+    if (node.distance <= threshold && node.children.length > 0) {
+      node.children = getAllLeaves(node)
       return
     }
     for (let child in node.children) {
@@ -138,72 +70,99 @@ function cutTree(node, threshold) {
   }
   _cut(node)
 
-  // TODO: Better solution?
-  for  (idx = 0; idx < clusters.length; idx++) {
-    clusters[idx].id = idx
-  }
-
-  return clusters
+  return node
 }
 
+const diagonal = function (d) {
+  return d3.line().x(point =>  point.ly).y(point =>  point.lx)(
+    [
+      {lx: d.source.x, ly: d.source.y},
+      {lx: d.target.x, ly: d.source.y},
+      {lx: d.target.x, ly: d.target.y}
+    ]
+  )
+}
 
 const list = data => {
 
-  const lists = window.listing.selectAll('li')
-        .data(data.data)
-
-  lists.enter().append('li')
-    .merge(lists)
-    .html(String)
-
-  lists.exit().remove()
+  // TODO
 
 }
 
+const leaves = function (d) {
+  if (d.children == null) {
+    // TODO: This can probably be fixed elsewhere
+    const idx = d.data.index ? d.data.index : 1
+    return `translate(${d.parent.y + (idx * 12)}, ${d.parent.x})`
+  }
+  else {
+    return `translate(${d.y},${d.x})`
+  }
+}
+
+const colour = function (d) {
+  if (d.data.children.length == 0) {
+    return 'steelblue'
+  }
+  else {
+    return 'red'
+  }
+}
 
 // Where the magic happens
 const render = data => {
 
-  const elemWidth = 10;
-  const elemHeight = 10;
+  const root = d3.hierarchy(data)
+  // TODO: better size calculation
+  const tree = d3.cluster().size([800, 1000])(root)
 
-  const groups = window.container.selectAll('.stack')
-        .data(data)
+  var treeNodes = root.descendants()
 
-  const stacks = groups.selectAll('.elem')
-        .data(d => d.data)
+  var nodes = window.container.selectAll('.node')
+        .data(treeNodes)
 
-  const groupsEnter = groups.enter()
+  var nodesEnter= nodes.enter()
       .append('g')
-      .attr("class", "stack")
+      .attr("class", "node")
       .on("click", function(d){list(d)})
 
-  groupsEnter.merge(groups)
-    .attr('transform', function(d) {
-      return "translate(0," + (d.id * (elemWidth + 1)) + ")"
-    })
+  nodesEnter.merge(nodes)
+    .attr("transform", leaves)
 
-  const stacksEnter= stacks.enter()
-      .append('g')
-      .attr("class", "elem")
+  nodesEnter.append('rect')
+    .attr('width', '8px')
+    .attr('height', '8px')
 
-  stacksEnter.merge(stacks)
-    .attr('transform', function(d, idx) {
-      return "translate(" + (idx * (elemHeight + 1)) + ",0)"
-    })
+  nodesEnter.merge(nodes)
+    .attr('fill', colour)
 
-  stacksEnter.append('rect')
-    .attr('width', elemWidth)
-    .attr('height',  elemHeight)
-    .attr('fill', 'steelblue')
+  nodes.exit().remove()
 
-  groups.exit().remove()
-  stacks.exit().remove()
+  var treeLinks = root.links()
+
+  // filters out all leaves
+  var links = window.container.selectAll('.link')
+      .data(treeLinks.filter(d => d.target.data.children.length > 1))
+
+  const linksEnter= links.enter()
+        .append('path')
+        .attr('class', 'link')
+        .attr('fill', 'none')
+        .attr('stroke', 'steelblue')
+        .attr('stroke-width', '1px')
+
+  linksEnter.merge(links)
+    .attr('d', diagonal)
+
+  links.exit().remove()
 }
 
 function updateRange(value) {
   document.getElementById("cutoffLabel").textContent = value
 
-  var data = cutTree(window.tree, value)
+  // Needs a pass-by-value
+  // Use d3-hierachy copy?
+  var _data = JSON.parse(JSON.stringify(window.data))
+  var data = cutTree(_data, value)
   render(data)
 }

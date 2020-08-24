@@ -112,6 +112,12 @@ function getAllLeaves(node) {
     }
   }
   _getLeaves(node)
+
+  // Add index to each node, so that we can use it later
+  for  (idx = 0; idx < leaves.length; idx++) {
+    leaves[idx].index = idx + 1
+  }
+
   return leaves
 }
 
@@ -141,12 +147,10 @@ const diagonal = function (d) {
   )
 }
 
-const leaves = function (d, idx) {
+const leaves = function (d) {
   if (d.children == null) {
-    console.log('index: ' + idx)
-    console.log('parent index: ' + d.parent.index)
-    console.log('should: ' + (idx - d.parent.index - 1))
-    console.log('')
+    // TODO: This can probably be fixed elsewhere
+    const idx = d.data.index ? d.data.index : 1
     return `translate(${d.parent.y + (idx * 15)}, ${d.parent.x})`
   }
   else {
@@ -171,13 +175,6 @@ const render = data => {
 
   var treeNodes = root.descendants()
   var treeLinks = root.links()
-
-  // Add index to each node, so that we can get the parents index
-  for  (idx = 0; idx < treeNodes.length; idx++) {
-    treeNodes[idx].index = idx
-  }
-
-  console.log(treeNodes)
 
   var nodes = window.container.selectAll('.node')
         .data(treeNodes)
@@ -222,7 +219,7 @@ function updateRange(value) {
   // Needs a pass-by-value
   // Use d3-hierachy copy?
   var _data = JSON.parse(JSON.stringify(window.data))
-
+  console.log(_data)
   var data = cutTree(_data, value)
 
   render(data)

@@ -24,6 +24,7 @@ function init(root) {
   // TODO: First render here?
 }
 
+// Used in restructuring/cutting off the tree
 function getAllLeaves(node) {
   var leaves = []
   function _getLeaves(node) {
@@ -49,6 +50,8 @@ function getAllLeaves(node) {
   return leaves
 }
 
+// Restructures the tree.
+// Meaning, everything below the cutoff becomes a leaf
 function cutTree(node, threshold) {
 
   function _cut(node) {
@@ -73,10 +76,6 @@ const diagonal = function (d) {
       {lx: d.target.x, ly: d.target.y/2}
     ]
   )
-}
-
-const list = data => {
-  // TODO
 }
 
 const coord = function (d) {
@@ -122,7 +121,6 @@ const render = data => {
   var nodesEnter= nodes.enter()
       .append('g')
       .attr("class", "node")
-      .on("click", function(d){list(d)})
 
   nodesEnter.merge(nodes)
     .attr("transform", coord)
@@ -159,6 +157,10 @@ function updateRange(value) {
   // Needs a pass-by-value
   // Use d3-hierachy copy?
   var _data = JSON.parse(JSON.stringify(window.data))
+
+  // I restructure the tree according to the cutoff value
+  // Meaning, everything below the cutoff becomes a leaf
+  // TODO: Is this be best solution?
   var data = cutTree(_data, value)
   render(data)
 }

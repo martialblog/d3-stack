@@ -7,6 +7,7 @@ function init(root) {
 
   window.container = d3.select("#container")
     .append("svg")
+    .attr("transform", "translate(10,10)");
 
   window.listing = d3.select("#list").append("ul")
 
@@ -73,12 +74,25 @@ function cutTree(node, threshold) {
   return node
 }
 
+function elbow(d) {
+  return "M" + d.source.y + "," + d.source.x + "V" + d.target.x + "H" + d.target.y;
+}
+
+function elbow_h(d) {
+  return "M" + d.source.x + "," + d.source.y + "H" + d.target.x + "V" + d.target.y;
+}
+
+function overed(event, d) {
+  d3.select(this).style("opacity", 1)
+}
+
+function outed(event, d) {
+  d3.select(this).style("opacity", 0)
+}
 
 function list(event, data) {
 
   var items = data.leaves()
-
-  console.log(items)
   const lists = window.listing.selectAll('li')
         .data(items)
 
@@ -100,7 +114,7 @@ const render = data => {
   var h_tree = 1000 // treeNodes.filter(d => d.children).length * 15
   var h_cont = document.getElementById('container').clientHeight
 
-  var width = 1000
+  var width = 1400
   var height = (h_tree <= h_cont) ? h_cont : h_tree
   // var width = document.getElementById('container').clientWidth
 
@@ -115,8 +129,9 @@ const render = data => {
       .attr("class", "node")
       .on("click", list)
 
-  nodesEnter.append("circle")
-    .attr("r", 4)
+  nodesEnter.append("rect")
+    .attr("width", 10)
+    .attr("height", 10)
 
   nodesEnter.merge(nodes)
     .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
@@ -124,21 +139,21 @@ const render = data => {
 
   nodes.exit().remove()
 
-  // filters out all leaves
-  // var links = window.container.selectAll('.link')
-  //     .data(treeLinks.filter(d => d.target.children))
+  var links = window.container.selectAll(".link")
+      .data(treeLinks)
 
-  // const linksEnter= links.enter()
-  //       .append('path')
-  //       .attr('class', 'link')
-  //       .attr('fill', 'none')
-  //       .attr('stroke', 'steelblue')
-  //       .attr('stroke-width', '1px')
+  var linksEnter = links
+      .enter().append("path")
+      .attr("class", "link")
+      .attr('fill', 'none')
 
-  // linksEnter.merge(links)
-  //   .attr('d', diagonal)
+  linksEnter.merge(links)
+    .attr('stroke', 'black')
+    .attr('stroke-width', '1px')
+    .style("opacity", 1)
+    .attr("d", elbow);
 
-  // links.exit().remove()
+  links.exit().remove()
 }
 
 function updateRange(value) {

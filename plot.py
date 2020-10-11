@@ -3,23 +3,22 @@ import scipy
 import py_stringmatching as sm
 import plotly.figure_factory as ff
 
-INPUT = '/home/markus/github/histnorm/datasets/historical/german/german-anselm.train.txt'
+INPUT = "/home/markus/github/histnorm/datasets/historical/german/german-anselm.train.txt"
 
 with open(INPUT, "r", encoding="utf-8") as infile:
     text = [line.strip().split("\t")[1] for line in infile]
 
-# n = 1000 # number of tokens
-# examples = text[:n]
+n = 500 # number of tokens
 
 sim = sm.Levenshtein()
 
-examples = list(set(text[:10000]))
+examples = list(set(text[:n]))
 print(len(examples))
 
 tokens = np.array(examples).reshape(-1,1)
 matrix = scipy.spatial.distance.pdist(tokens, lambda x,y: sim.get_raw_score(str(x[0]),str(y[0])))
 
-linkage_method = 'ward'
+linkage_method = "ward"
 model = scipy.cluster.hierarchy.linkage(matrix, linkage_method)
 
 from functools import reduce

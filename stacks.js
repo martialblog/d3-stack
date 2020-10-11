@@ -176,7 +176,7 @@ const render = data => {
   const groupsEnter = groups.enter()
       .append('g')
       .attr("class", "stack")
-      .on("click", function(d){list(d)})
+      .on("click", list)
 
   groupsEnter.merge(groups)
     .attr('transform', function(d) {

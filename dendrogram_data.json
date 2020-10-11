@@ -1,0 +1,2151 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "distance": 0,
+                          "name": "bleibe"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "distance": 0,
+                              "name": "kleid"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "ledig"
+                                },
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "leib"
+                                }
+                              ],
+                              "distance": 2.0
+                            }
+                          ],
+                          "distance": 2.70801280154532
+                        }
+                      ],
+                      "distance": 3.4156502553198664
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "distance": 0,
+                              "name": "weh"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "wen"
+                                },
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "wenn"
+                                }
+                              ],
+                              "distance": 1.0
+                            }
+                          ],
+                          "distance": 1.7320508075688772
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "kein"
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "mein"
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "ein"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "sein"
+                                        }
+                                      ],
+                                      "distance": 1.0
+                                    }
+                                  ],
+                                  "distance": 1.0
+                                }
+                              ],
+                              "distance": 1.0
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "bei"
+                                },
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "wei\u00df"
+                                }
+                              ],
+                              "distance": 2.0
+                            }
+                          ],
+                          "distance": 2.6457513110645907
+                        }
+                      ],
+                      "distance": 3.7712361663282534
+                    }
+                  ],
+                  "distance": 6.152617398693083
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "distance": 0,
+                          "name": "gewahr"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "distance": 0,
+                              "name": "mehr"
+                            },
+                            {
+                              "children": [],
+                              "distance": 0,
+                              "name": "sehr"
+                            }
+                          ],
+                          "distance": 1.0
+                        }
+                      ],
+                      "distance": 3.415650255319866
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "distance": 0,
+                              "name": "drei"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "dem"
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "den"
+                                    },
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "der"
+                                    }
+                                  ],
+                                  "distance": 1.0
+                                }
+                              ],
+                              "distance": 1.0
+                            }
+                          ],
+                          "distance": 2.345207879911715
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "oder"
+                                },
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "adern"
+                                }
+                              ],
+                              "distance": 2.0
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "euer"
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "\u00fcber"
+                                    },
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "aber"
+                                    }
+                                  ],
+                                  "distance": 1.0
+                                }
+                              ],
+                              "distance": 2.23606797749979
+                            }
+                          ],
+                          "distance": 2.9664793948382653
+                        }
+                      ],
+                      "distance": 4.41336354471029
+                    }
+                  ],
+                  "distance": 6.871842709362767
+                }
+              ],
+              "distance": 8.181467487951673
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "distance": 0,
+                              "name": "wollt"
+                            },
+                            {
+                              "children": [],
+                              "distance": 0,
+                              "name": "wollte"
+                            }
+                          ],
+                          "distance": 1.0
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "distance": 0,
+                              "name": "wort"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "wohl"
+                                },
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "soll"
+                                }
+                              ],
+                              "distance": 2.0
+                            }
+                          ],
+                          "distance": 2.70801280154532
+                        }
+                      ],
+                      "distance": 3.235222815613581
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "distance": 0,
+                              "name": "zogen"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "toren"
+                                },
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "dorn"
+                                }
+                              ],
+                              "distance": 2.0
+                            }
+                          ],
+                          "distance": 2.70801280154532
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "tod"
+                                },
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "tor"
+                                }
+                              ],
+                              "distance": 1.0
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "sohn"
+                                },
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "von"
+                                }
+                              ],
+                              "distance": 2.0
+                            }
+                          ],
+                          "distance": 3.24037034920393
+                        }
+                      ],
+                      "distance": 4.002975084085525
+                    }
+                  ],
+                  "distance": 7.118721126451749
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "lie\u00df"
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "viel"
+                                    },
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "sieh"
+                                    }
+                                  ],
+                                  "distance": 2.0
+                                }
+                              ],
+                              "distance": 2.0
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "sie"
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "nie"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "wie"
+                                        }
+                                      ],
+                                      "distance": 1.0
+                                    }
+                                  ],
+                                  "distance": 1.0
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "dies"
+                                    },
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "die"
+                                    }
+                                  ],
+                                  "distance": 1.0
+                                }
+                              ],
+                              "distance": 2.1447610589527217
+                            }
+                          ],
+                          "distance": 2.529822128134704
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "bis"
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "ist"
+                                    },
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "mit"
+                                    }
+                                  ],
+                                  "distance": 2.0
+                                }
+                              ],
+                              "distance": 2.0
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "ihr"
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "ihn"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "ihm"
+                                        }
+                                      ],
+                                      "distance": 1.0
+                                    }
+                                  ],
+                                  "distance": 1.0
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "nicht"
+                                    },
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "ich"
+                                    }
+                                  ],
+                                  "distance": 2.0
+                                }
+                              ],
+                              "distance": 3.521363372331802
+                            }
+                          ],
+                          "distance": 4.3127717305695645
+                        }
+                      ],
+                      "distance": 6.123724356957946
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "da"
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "das"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "dass"
+                                        }
+                                      ],
+                                      "distance": 1.0
+                                    }
+                                  ],
+                                  "distance": 1.7320508075688772
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "ward"
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "war"
+                                            },
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "was"
+                                            }
+                                          ],
+                                          "distance": 1.0
+                                        }
+                                      ],
+                                      "distance": 1.7320508075688772
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "hat"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "kam"
+                                        }
+                                      ],
+                                      "distance": 2.0
+                                    }
+                                  ],
+                                  "distance": 3.0983866769659336
+                                }
+                              ],
+                              "distance": 3.556683848755748
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "rann"
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "in"
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "man"
+                                            },
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "an"
+                                            }
+                                          ],
+                                          "distance": 1.0
+                                        }
+                                      ],
+                                      "distance": 1.7320508075688772
+                                    }
+                                  ],
+                                  "distance": 2.7386127875258306
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "tun"
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "und"
+                                            },
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "um"
+                                            }
+                                          ],
+                                          "distance": 2.0
+                                        }
+                                      ],
+                                      "distance": 2.0
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "f\u00fcr"
+                                            },
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "er"
+                                            }
+                                          ],
+                                          "distance": 2.0
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "ob"
+                                            },
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "zu"
+                                            }
+                                          ],
+                                          "distance": 2.0
+                                        }
+                                      ],
+                                      "distance": 3.0
+                                    }
+                                  ],
+                                  "distance": 3.644957377763735
+                                }
+                              ],
+                              "distance": 4.3730283126657925
+                            }
+                          ],
+                          "distance": 5.794631239015322
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "b\u00f6ses"
+                                },
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "jesus"
+                                }
+                              ],
+                              "distance": 3.0
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "alle"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "all"
+                                        }
+                                      ],
+                                      "distance": 1.0
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "so"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "also"
+                                        }
+                                      ],
+                                      "distance": 2.0
+                                    }
+                                  ],
+                                  "distance": 3.7416573867739418
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "blut"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "blau"
+                                        }
+                                      ],
+                                      "distance": 2.0
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "haupt"
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "auf"
+                                            },
+                                            {
+                                              "children": [
+                                                {
+                                                  "children": [],
+                                                  "distance": 0,
+                                                  "name": "aus"
+                                                },
+                                                {
+                                                  "children": [],
+                                                  "distance": 0,
+                                                  "name": "haus"
+                                                }
+                                              ],
+                                              "distance": 1.0
+                                            }
+                                          ],
+                                          "distance": 1.7320508075688772
+                                        }
+                                      ],
+                                      "distance": 3.1622776601683795
+                                    }
+                                  ],
+                                  "distance": 4.358898943540674
+                                }
+                              ],
+                              "distance": 5.196152422706631
+                            }
+                          ],
+                          "distance": 6.2182527020592095
+                        }
+                      ],
+                      "distance": 7.96057063133399
+                    }
+                  ],
+                  "distance": 9.706449822347022
+                }
+              ],
+              "distance": 10.880289279014937
+            }
+          ],
+          "distance": 11.704595787571817
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "distance": 0,
+                          "name": "kreuzigten"
+                        },
+                        {
+                          "children": [],
+                          "distance": 0,
+                          "name": "kreuzigte"
+                        }
+                      ],
+                      "distance": 1.0
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "distance": 0,
+                          "name": "gr\u00e4ulichen"
+                        },
+                        {
+                          "children": [],
+                          "distance": 0,
+                          "name": "ietesliche"
+                        }
+                      ],
+                      "distance": 6.0
+                    }
+                  ],
+                  "distance": 8.276472678623424
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "distance": 0,
+                              "name": "verspotte"
+                            },
+                            {
+                              "children": [],
+                              "distance": 0,
+                              "name": "verschm\u00e4hte"
+                            }
+                          ],
+                          "distance": 5.0
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "mochte"
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "rechte"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "knechte"
+                                        }
+                                      ],
+                                      "distance": 2.0
+                                    }
+                                  ],
+                                  "distance": 2.70801280154532
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "gelobte"
+                                    },
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "gedachte"
+                                    }
+                                  ],
+                                  "distance": 4.0
+                                }
+                              ],
+                              "distance": 5.354126134736337
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "bisch\u00f6fe"
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "geschah"
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "menschen"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "zeichen"
+                                        }
+                                      ],
+                                      "distance": 3.0
+                                    }
+                                  ],
+                                  "distance": 4.281744192888376
+                                }
+                              ],
+                              "distance": 6.454972243679028
+                            }
+                          ],
+                          "distance": 7.386173268720112
+                        }
+                      ],
+                      "distance": 9.963063096388893
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "schlagen"
+                                },
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "schlugen"
+                                }
+                              ],
+                              "distance": 1.0
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "schweige"
+                                },
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "z\u00fcchtige"
+                                }
+                              ],
+                              "distance": 4.0
+                            }
+                          ],
+                          "distance": 5.700877125495689
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "distance": 0,
+                              "name": "umgreifen"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "brachen"
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "sprachen"
+                                    },
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "sprechen"
+                                    }
+                                  ],
+                                  "distance": 1.0
+                                }
+                              ],
+                              "distance": 2.8867513459481287
+                            }
+                          ],
+                          "distance": 6.794605703546502
+                        }
+                      ],
+                      "distance": 10.677078252031311
+                    }
+                  ],
+                  "distance": 12.36390022234626
+                }
+              ],
+              "distance": 12.45297791851016
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "distance": 0,
+                              "name": "erbelinc"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "gemeine"
+                                    },
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "neheine"
+                                    }
+                                  ],
+                                  "distance": 2.0
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "geledigt"
+                                    },
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "verdient"
+                                    }
+                                  ],
+                                  "distance": 5.0
+                                }
+                              ],
+                              "distance": 5.5677643628300215
+                            }
+                          ],
+                          "distance": 6.066300355241241
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "distance": 0,
+                              "name": "gewohnheit"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "getan"
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "gewand"
+                                    },
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "gesandt"
+                                    }
+                                  ],
+                                  "distance": 2.0
+                                }
+                              ],
+                              "distance": 2.70801280154532
+                            }
+                          ],
+                          "distance": 7.593857166596345
+                        }
+                      ],
+                      "distance": 9.029581016488713
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "goldene"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "galgen"
+                                        }
+                                      ],
+                                      "distance": 3.0
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "gen\u00fcgen"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "ganzes"
+                                        }
+                                      ],
+                                      "distance": 4.0
+                                    }
+                                  ],
+                                  "distance": 4.636809247747852
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "wurden"
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "juden"
+                                            },
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "enden"
+                                            }
+                                          ],
+                                          "distance": 2.0
+                                        }
+                                      ],
+                                      "distance": 2.70801280154532
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "spannen"
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "banden"
+                                            },
+                                            {
+                                              "children": [
+                                                {
+                                                  "children": [],
+                                                  "distance": 0,
+                                                  "name": "binnen"
+                                                },
+                                                {
+                                                  "children": [],
+                                                  "distance": 0,
+                                                  "name": "binden"
+                                                }
+                                              ],
+                                              "distance": 1.0
+                                            }
+                                          ],
+                                          "distance": 1.7320508075688772
+                                        }
+                                      ],
+                                      "distance": 4.0
+                                    }
+                                  ],
+                                  "distance": 5.3004941368930965
+                                }
+                              ],
+                              "distance": 6.315822225934671
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "lassen"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "lasse"
+                                        }
+                                      ],
+                                      "distance": 1.0
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "anselm"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "tausend"
+                                        }
+                                      ],
+                                      "distance": 4.0
+                                    }
+                                  ],
+                                  "distance": 4.47213595499958
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "unmazen"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "smaheit"
+                                        }
+                                      ],
+                                      "distance": 5.0
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "nahm"
+                                            },
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "nahmen"
+                                            }
+                                          ],
+                                          "distance": 2.0
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [
+                                                {
+                                                  "children": [],
+                                                  "distance": 0,
+                                                  "name": "haben"
+                                                },
+                                                {
+                                                  "children": [],
+                                                  "distance": 0,
+                                                  "name": "habe"
+                                                }
+                                              ],
+                                              "distance": 1.0
+                                            },
+                                            {
+                                              "children": [
+                                                {
+                                                  "children": [],
+                                                  "distance": 0,
+                                                  "name": "t\u00f6ten"
+                                                },
+                                                {
+                                                  "children": [],
+                                                  "distance": 0,
+                                                  "name": "taten"
+                                                }
+                                              ],
+                                              "distance": 1.0
+                                            }
+                                          ],
+                                          "distance": 4.242640687119285
+                                        }
+                                      ],
+                                      "distance": 5.41602560309064
+                                    }
+                                  ],
+                                  "distance": 6.238322424070965
+                                }
+                              ],
+                              "distance": 7.4777447580581855
+                            }
+                          ],
+                          "distance": 8.88660077050173
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "herodes"
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "gerne"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "herren"
+                                        }
+                                      ],
+                                      "distance": 3.0
+                                    }
+                                  ],
+                                  "distance": 3.696845502136472
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "teilen"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "seiden"
+                                        }
+                                      ],
+                                      "distance": 2.0
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "eine"
+                                            },
+                                            {
+                                              "children": [
+                                                {
+                                                  "children": [],
+                                                  "distance": 0,
+                                                  "name": "einen"
+                                                },
+                                                {
+                                                  "children": [],
+                                                  "distance": 0,
+                                                  "name": "einem"
+                                                }
+                                              ],
+                                              "distance": 1.0
+                                            }
+                                          ],
+                                          "distance": 1.0
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "meinem"
+                                            },
+                                            {
+                                              "children": [
+                                                {
+                                                  "children": [],
+                                                  "distance": 0,
+                                                  "name": "seinem"
+                                                },
+                                                {
+                                                  "children": [],
+                                                  "distance": 0,
+                                                  "name": "seine"
+                                                }
+                                              ],
+                                              "distance": 1.0
+                                            }
+                                          ],
+                                          "distance": 1.7320508075688772
+                                        }
+                                      ],
+                                      "distance": 2.449489742783178
+                                    }
+                                  ],
+                                  "distance": 4.0
+                                }
+                              ],
+                              "distance": 6.541244437251889
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "wieder"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "kinder"
+                                        }
+                                      ],
+                                      "distance": 2.0
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "finde"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "kind"
+                                        }
+                                      ],
+                                      "distance": 2.0
+                                    }
+                                  ],
+                                  "distance": 3.5355339059327378
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "nirgend"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "niemand"
+                                        }
+                                      ],
+                                      "distance": 3.0
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "riefen"
+                                            },
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "riemen"
+                                            }
+                                          ],
+                                          "distance": 1.0
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "liebes"
+                                            },
+                                            {
+                                              "children": [
+                                                {
+                                                  "children": [],
+                                                  "distance": 0,
+                                                  "name": "leben"
+                                                },
+                                                {
+                                                  "children": [],
+                                                  "distance": 0,
+                                                  "name": "lieben"
+                                                }
+                                              ],
+                                              "distance": 1.0
+                                            }
+                                          ],
+                                          "distance": 1.7320508075688772
+                                        }
+                                      ],
+                                      "distance": 3.924283374069717
+                                    }
+                                  ],
+                                  "distance": 6.4608712371364545
+                                }
+                              ],
+                              "distance": 7.7923538947341955
+                            }
+                          ],
+                          "distance": 10.277955226423382
+                        }
+                      ],
+                      "distance": 11.236351697637035
+                    }
+                  ],
+                  "distance": 13.437096247164247
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "distance": 0,
+                              "name": "k\u00f6nigreich"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "k\u00f6nige"
+                                },
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "k\u00f6nig"
+                                }
+                              ],
+                              "distance": 1.0
+                            }
+                          ],
+                          "distance": 5.196152422706631
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "gro\u00dfer"
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "froh"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "f\u00fc\u00dfe"
+                                        }
+                                      ],
+                                      "distance": 3.0
+                                    }
+                                  ],
+                                  "distance": 4.281744192888376
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "fragte"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "kraft"
+                                        }
+                                      ],
+                                      "distance": 3.0
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "freund"
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "kreuze"
+                                            },
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "krone"
+                                            }
+                                          ],
+                                          "distance": 3.0
+                                        }
+                                      ],
+                                      "distance": 3.696845502136472
+                                    }
+                                  ],
+                                  "distance": 4.973261840415537
+                                }
+                              ],
+                              "distance": 6.022181221672647
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "barabbas"
+                                    },
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "pilatus"
+                                    }
+                                  ],
+                                  "distance": 6.0
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "dirre"
+                                            },
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "dicke"
+                                            }
+                                          ],
+                                          "distance": 2.0
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "darum"
+                                            },
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "daran"
+                                            }
+                                          ],
+                                          "distance": 2.0
+                                        }
+                                      ],
+                                      "distance": 4.582575694955839
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "durch"
+                                            },
+                                            {
+                                              "children": [
+                                                {
+                                                  "children": [],
+                                                  "distance": 0,
+                                                  "name": "euch"
+                                                },
+                                                {
+                                                  "children": [],
+                                                  "distance": 0,
+                                                  "name": "auch"
+                                                }
+                                              ],
+                                              "distance": 1.0
+                                            }
+                                          ],
+                                          "distance": 2.23606797749979
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "danach"
+                                            },
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "sprach"
+                                            }
+                                          ],
+                                          "distance": 3.0
+                                        }
+                                      ],
+                                      "distance": 4.711687595755899
+                                    }
+                                  ],
+                                  "distance": 7.258711241597151
+                                }
+                              ],
+                              "distance": 9.205839165848746
+                            }
+                          ],
+                          "distance": 10.195223574402743
+                        }
+                      ],
+                      "distance": 11.487667612576258
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "w\u00e4re"
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "t\u00e4te"
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "g\u00e4be"
+                                            },
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "s\u00e4he"
+                                            }
+                                          ],
+                                          "distance": 2.0
+                                        }
+                                      ],
+                                      "distance": 2.0
+                                    }
+                                  ],
+                                  "distance": 2.0
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "h\u00e4nge"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "h\u00e4nde"
+                                        }
+                                      ],
+                                      "distance": 1.0
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "s\u00e4ule"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "stunde"
+                                        }
+                                      ],
+                                      "distance": 3.0
+                                    }
+                                  ],
+                                  "distance": 4.06201920231798
+                                }
+                              ],
+                              "distance": 5.196152422706631
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "stillte"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "stimme"
+                                        }
+                                      ],
+                                      "distance": 3.0
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "starke"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "sterben"
+                                        }
+                                      ],
+                                      "distance": 3.0
+                                    }
+                                  ],
+                                  "distance": 4.898979485566356
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "setzte"
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "sandte"
+                                            },
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "sache"
+                                            }
+                                          ],
+                                          "distance": 3.0
+                                        }
+                                      ],
+                                      "distance": 3.696845502136472
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "scharf"
+                                        },
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "speere"
+                                        }
+                                      ],
+                                      "distance": 4.0
+                                    }
+                                  ],
+                                  "distance": 5.18973345494095
+                                }
+                              ],
+                              "distance": 6.160808027812224
+                            }
+                          ],
+                          "distance": 8.778501666188138
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "antlitz"
+                                },
+                                {
+                                  "children": [],
+                                  "distance": 0,
+                                  "name": "antworten"
+                                }
+                              ],
+                              "distance": 5.0
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "distance": 0,
+                                      "name": "zusammen"
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "wirkten"
+                                            },
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "wusste"
+                                            }
+                                          ],
+                                          "distance": 4.0
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "gehalten"
+                                            },
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "f\u00fchrten"
+                                            }
+                                          ],
+                                          "distance": 4.0
+                                        }
+                                      ],
+                                      "distance": 5.916079783099615
+                                    }
+                                  ],
+                                  "distance": 5.9497899122574065
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "vater"
+                                            },
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "lauter"
+                                            }
+                                          ],
+                                          "distance": 2.0
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "\u00e4chter"
+                                            },
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "ritter"
+                                            }
+                                          ],
+                                          "distance": 3.0
+                                        }
+                                      ],
+                                      "distance": 3.3911649915626336
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "distance": 0,
+                                          "name": "hoffte"
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "distance": 0,
+                                              "name": "h\u00e4tte"
+                                            },
+                                            {
+                                              "children": [
+                                                {
+                                                  "children": [],
+                                                  "distance": 0,
+                                                  "name": "hatten"
+                                                },
+                                                {
+                                                  "children": [],
+                                                  "distance": 0,
+                                                  "name": "hatte"
+                                                }
+                                              ],
+                                              "distance": 1.0
+                                            }
+                                          ],
+                                          "distance": 1.7320508075688772
+                                        }
+                                      ],
+                                      "distance": 4.0
+                                    }
+                                  ],
+                                  "distance": 6.2048368229954285
+                                }
+                              ],
+                              "distance": 8.28251169633946
+                            }
+                          ],
+                          "distance": 9.110433579144297
+                        }
+                      ],
+                      "distance": 11.824544513053198
+                    }
+                  ],
+                  "distance": 13.879054599130896
+                }
+              ],
+              "distance": 16.37975263232923
+            }
+          ],
+          "distance": 20.902112450094602
+        }
+      ],
+      "distance": 28.423404677664514
+    }
+  ],
+  "distance": 28.423404677664514,
+  "name": "root"
+}

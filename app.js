@@ -1,4 +1,4 @@
-d3.json("http://localhost:8000/dendrogram.json").then(function(data){
+d3.json("http://localhost:8000/dendrogram_data.json").then(function(data){
   window.data = data
   init(data)
 })
@@ -7,6 +7,8 @@ function init(root) {
 
   window.container = d3.select("#container")
     .append("svg")
+
+  window.listing = d3.select("#list").append("ul")
 
   var cutoffMin = Number.MAX_VALUE;
   var cutoffMax = Number.MIN_VALUE;
@@ -50,15 +52,18 @@ function getAllLeaves(node) {
   return leaves
 }
 
-// Restructures the tree.
-// Meaning, everything below the cutoff becomes a leaf
-function cutTree(node, threshold) {
 
+// Restructures the tree.
+function cutTree(node, threshold) {
   function _cut(node) {
-    if (node.distance <= threshold && node.children.length > 0) {
+    // Restructure hierachy
+    // Meaning, everything below the cutoff becomes a leaf
+    if (node.distance <= threshold && node.children) {
       node.children = getAllLeaves(node)
       return
     }
+
+    // Go deeper!
     for (let child in node.children) {
       _cut(node.children[child])
     }
@@ -68,34 +73,21 @@ function cutTree(node, threshold) {
   return node
 }
 
-const diagonal = function (d) {
-  return d3.line().x(point =>  point.ly).y(point =>  point.lx)(
-    [
-      {lx: d.source.x, ly: d.source.y/2},
-      {lx: d.target.x, ly: d.source.y/2},
-      {lx: d.target.x, ly: d.target.y/2}
-    ]
-  )
-}
 
-const coord = function (d) {
-  if (d.children == null) {
-    // TODO: This can probably be fixed elsewhere
-    const idx = d.data.index ? d.data.index : 1
-    return `translate(${d.parent.y/2 + (idx * 11)}, ${d.parent.x})`
-  }
-  else {
-    return `translate(${d.y/2},${d.x})`
-  }
-}
+function list(event, data) {
 
-const colour = function (d) {
-  if (d.data.children.length == 0) {
-    return 'steelblue'
-  }
-  else {
-    return '#f8766d'
-  }
+  var items = data.leaves()
+
+  console.log(items)
+  const lists = window.listing.selectAll('li')
+        .data(items)
+
+  lists.enter().append('li')
+    .merge(lists)
+    .html(d => d.data.name)
+
+  lists.exit().remove()
+
 }
 
 // Where the magic happens
@@ -105,62 +97,55 @@ const render = data => {
   var treeNodes = root.descendants()
   var treeLinks = root.links()
 
-  var h_tree = treeNodes.filter(d => d.data.children.length > 1).length * 15
+  var h_tree = 1000 // treeNodes.filter(d => d.children).length * 15
   var h_cont = document.getElementById('container').clientHeight
 
   var width = 1000
   var height = (h_tree <= h_cont) ? h_cont : h_tree
   // var width = document.getElementById('container').clientWidth
 
-  const tree = d3.cluster().size([height, width])(root)
+  const tree = d3.stackedtree().size([height, width]).ratio(0.2)(root)
   window.container.merge(window.container).attr("width", width).attr("height", height)
 
   var nodes = window.container.selectAll('.node')
         .data(treeNodes)
 
-  var nodesEnter= nodes.enter()
-      .append('g')
+  var nodesEnter= nodes
+      .enter().append("g")
       .attr("class", "node")
+      .on("click", list)
+
+  nodesEnter.append("circle")
+    .attr("r", 4)
 
   nodesEnter.merge(nodes)
-    .attr("transform", coord)
-
-  nodesEnter.append('rect')
-    .attr('width', '10px')
-    .attr('height', '10px')
-
-  nodesEnter.merge(nodes)
-    .attr('fill', colour)
+    .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+    .attr("fill", function(d) { return d.children ? "black" : "steelblue"; });
 
   nodes.exit().remove()
 
   // filters out all leaves
-  var links = window.container.selectAll('.link')
-      .data(treeLinks.filter(d => d.target.data.children.length > 1))
+  // var links = window.container.selectAll('.link')
+  //     .data(treeLinks.filter(d => d.target.children))
 
-  const linksEnter= links.enter()
-        .append('path')
-        .attr('class', 'link')
-        .attr('fill', 'none')
-        .attr('stroke', 'steelblue')
-        .attr('stroke-width', '1px')
+  // const linksEnter= links.enter()
+  //       .append('path')
+  //       .attr('class', 'link')
+  //       .attr('fill', 'none')
+  //       .attr('stroke', 'steelblue')
+  //       .attr('stroke-width', '1px')
 
-  linksEnter.merge(links)
-    .attr('d', diagonal)
+  // linksEnter.merge(links)
+  //   .attr('d', diagonal)
 
-  links.exit().remove()
+  // links.exit().remove()
 }
 
 function updateRange(value) {
   document.getElementById("cutoffLabel").textContent = value
 
-  // Needs a pass-by-value
-  // Use d3-hierachy copy?
   var _data = JSON.parse(JSON.stringify(window.data))
-
-  // I restructure the tree according to the cutoff value
-  // Meaning, everything below the cutoff becomes a leaf
-  // TODO: Is this be best solution?
   var data = cutTree(_data, value)
+
   render(data)
 }
